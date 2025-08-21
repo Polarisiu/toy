@@ -45,6 +45,7 @@ show_menu() {
     echo -e "${GREEN}1) 启动计算${RESET}"
     echo -e "${GREEN}2) 卸载/停止计算${RESET}"
     echo -e "${GREEN}3) 修改计算参数${RESET}"
+    echo -e "${GREEN}4) 查看结果文件${RESET}"
     echo -e "${GREEN}0) 退出脚本${RESET}"
 }
 
@@ -122,23 +123,40 @@ modify_parameters() {
     start_calculation
 }
 
+# ---------------- 查看结果 ----------------
+view_result() {
+    if [ -f .pi_file ]; then
+        FILE=$(cat .pi_file)
+        if [ -f "$FILE" ]; then
+            echo -e "${GREEN}=== 结果文件内容 (${FILE}) ===${RESET}"
+            cat "$FILE"
+            echo -e "${GREEN}\n=== 文件结束 ===${RESET}"
+        else
+            echo -e "${GREEN}结果文件不存在${RESET}"
+        fi
+    else
+        echo -e "${GREEN}未检测到结果文件，请先运行计算${RESET}"
+    fi
+}
+
 # ---------------- 捕获退出 ----------------
 trap '[[ $USER_EXIT -eq 0 ]] && stop_calculation' EXIT
 
 # ---------------- 主循环 ----------------
 while true; do
     show_menu
-    read -p $'\033[32m请选择操作 (0-3): \033[0m' choice
+    read -p $'\033[32m请选择操作 (0-4): \033[0m' choice
     case $choice in
         1) start_calculation ;;
         2) stop_calculation ;;
         3) modify_parameters ;;
+        4) view_result ;;
         0) 
             USER_EXIT=1
             echo -e "${GREEN}退出脚本${RESET}"
             exit 0
             ;;
-        *) echo -e "${GREEN}无效选择，请输入 0-3${RESET}" ;;
+        *) echo -e "${GREEN}无效选择，请输入 0-4${RESET}" ;;
     esac
     read -p $'\033[32m按回车继续... \033[0m'
 done
