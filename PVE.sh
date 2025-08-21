@@ -9,10 +9,10 @@ RESET='\033[0m'
 
 # ================== 安全提示 ==================
 echo -e "${YELLOW}⚠️ 警告！安装 Proxmox VE 会做以下操作：${RESET}"
-echo -e " 1. 修改系统APT源为PVE仓库"
-echo -e " 2. 安装KVM/QEMU/LXC等虚拟化核心组件"
-echo -e " 3. 修改网络配置（可能覆盖原有网络）"
-echo -e " 4. 可能需要重启系统"
+echo -e "${GREEN}1. 修改系统APT源为PVE仓库${RESET}"
+echo -e "${GREEN}2. 安装KVM/QEMU/LXC等虚拟化核心组件${RESET}"
+echo -e "${GREEN}3. 修改网络配置（可能覆盖原有网络）${RESET}"
+echo -e "${GREEN}4. 可能需要重启系统${RESET}"
 
 echo -e "${RED}⚠️ 建议在干净的 Debian/Ubuntu 系统上执行，并备份重要数据${RESET}"
 
