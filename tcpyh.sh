@@ -1,16 +1,13 @@
 #!/bin/bash
 
-# ==================== 颜色定义 ====================
 GREEN="\033[32m"
 RED="\033[31m"
 NC="\033[0m"
 
-# ==================== 脚本变量 ====================
 SCRIPT_URL="https://raw.githubusercontent.com/Adgerlee/tcp-optimize.sh/main/tcp-optimize.sh"
 SCRIPT_NAME="tcp-optimize.sh"
 BACKUP_FILE="/etc/sysctl.conf.bak"
 
-# ==================== 菜单函数 ====================
 show_menu() {
     echo -e "${GREEN}===== TCP 优化管理菜单 =====${NC}"
     echo -e "${GREEN}1) 下载 TCP 优化脚本${NC}"
@@ -23,7 +20,11 @@ show_menu() {
     echo -ne "${GREEN}请输入选项: ${NC}"
 }
 
-# ==================== 操作函数 ====================
+pause_return() {
+    echo -e "${GREEN}操作完成，按回车返回菜单...${NC}"
+    read
+}
+
 download_script() {
     if command -v curl >/dev/null 2>&1; then
         curl -O $SCRIPT_URL
@@ -31,10 +32,12 @@ download_script() {
         wget $SCRIPT_URL
     else
         echo -e "${RED}系统没有 curl 或 wget，请先安装${NC}"
+        pause_return
         return
     fi
     chmod +x $SCRIPT_NAME
     echo -e "${GREEN}脚本下载完成并添加执行权限${NC}"
+    pause_return
 }
 
 backup_sysctl() {
@@ -44,15 +47,18 @@ backup_sysctl() {
     else
         echo -e "${RED}/etc/sysctl.conf 不存在${NC}"
     fi
+    pause_return
 }
 
 run_optimization() {
     local target=$1
     if [ ! -f $SCRIPT_NAME ]; then
         echo -e "${RED}脚本不存在，请先下载${NC}"
+        pause_return
         return
     fi
     sudo ./$SCRIPT_NAME --target=$target
+    pause_return
 }
 
 restore_config() {
@@ -63,6 +69,7 @@ restore_config() {
     else
         echo -e "${RED}备份文件不存在${NC}"
     fi
+    pause_return
 }
 
 # ==================== 主循环 ====================
@@ -77,7 +84,7 @@ while true; do
         5) run_optimization local ;;
         6) restore_config ;;
         0) echo -e "${GREEN}退出菜单${NC}"; exit ;;
-        *) echo -e "${GREEN}无效选项，请重新输入${NC}" ;;
+        *) echo -e "${RED}无效选项，请重新输入${NC}"
+           pause_return ;;
     esac
-    echo
 done
