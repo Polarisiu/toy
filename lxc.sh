@@ -70,11 +70,11 @@ install_lxd() {
 batch_create_lxc() {
     while true; do
         clear
-        echo -e "${PURPLE}▶ 批量生成 LXC 小鸡${RESET}"
+        echo -e "${GREEN} 批量生成 LXC 小鸡${RESET}"
         echo "------------------------"
-        echo -e "${CYAN}1. 普通批量生成(1核/256MB/1GB/限速300Mbit)${RESET}"
-        echo -e "${CYAN}2. 自定义配置批量生成${RESET}"
-        echo -e "${WHITE}0. 返回上一级菜单${RESET}"
+        echo -e "${GREEN}1. 普通批量生成(1核/256MB/1GB/限速300Mbit)${RESET}"
+        echo -e "${GREEN}2. 自定义配置批量生成${RESET}"
+        echo -e "${GREEN}0. 返回上一级菜单${RESET}"
         echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
 
@@ -109,30 +109,67 @@ batch_create_lxc() {
 
 # ================== LXC 管理 ==================
 manage_lxc() {
+    export PATH=$PATH:/snap/bin  # 确保 lxc 命令可用
+    check_lxc || return
+
     while true; do
         clear
-        echo -e "${PURPLE}▶ 管理 LXC 小鸡${RESET}"
+        echo -e "${GREEN} 管理 LXC 小鸡${RESET}"
         echo "------------------------"
-        echo -e "${CYAN}1. 查看所有 LXC 小鸡${RESET}"
-        echo -e "${CYAN}2. 暂停所有 LXC 小鸡${RESET}"
-        echo -e "${CYAN}3. 启动所有 LXC 小鸡${RESET}"
-        echo -e "${CYAN}4. 暂停指定 LXC 小鸡${RESET}"
-        echo -e "${CYAN}5. 启动指定 LXC 小鸡${RESET}"
-        echo -e "${CYAN}6. 批量生成 LXC 小鸡${RESET}"
-        echo -e "${CYAN}7. 新增 LXC 小鸡${RESET}"
+        echo -e "${GREEN}1. 查看所有 LXC 小鸡${RESET}"
+        echo -e "${GREEN}2. 暂停所有 LXC 小鸡${RESET}"
+        echo -e "${GREEN}3. 启动所有 LXC 小鸡${RESET}"
+        echo -e "${GREEN}4. 暂停指定 LXC 小鸡${RESET}"
+        echo -e "${GREEN}5. 启动指定 LXC 小鸡${RESET}"
+        echo -e "${GREEN}6. 批量生成 LXC 小鸡${RESET}"
+        echo -e "${GREEN}7. 新增 LXC 小鸡${RESET}"
         echo -e "${RED}8. 删除指定 LXC 小鸡${RESET}"
         echo -e "${RED}9. 删除所有 LXC 小鸡和配置${RESET}"
-        echo -e "${WHITE}0. 返回上一级菜单${RESET}"
+        echo -e "${GREEN}0. 返回上一级菜单${RESET}"
         echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
 
         case $choice in
-            1) clear; echo -e "${GREEN}所有 LXC 小鸡运行状态：${RESET}"; lxc list; echo -e "${GREEN}密码端口信息:${RESET}"; cat log; break_end ;;
-            2) lxc stop --all; echo -e "${GREEN}已暂停所有小鸡${RESET}"; break_end ;;
-            3) lxc start --all; echo -e "${GREEN}已启动所有小鸡${RESET}"; break_end ;;
-            4) read -p $'\033[1;35m请输入要暂停的小鸡名字: \033[0m' name; lxc stop "$name"; echo -e "${GREEN}${name} 已暂停${RESET}"; break_end ;;
-            5) read -p $'\033[1;35m请输入要启动的小鸡名字: \033[0m' name; lxc start "$name"; echo -e "${GREEN}${name} 已启动${RESET}"; break_end ;;
-            6) batch_create_lxc ;;
+            1)
+                echo -e "${GREEN}当前存在的 LXC 小鸡运行状态：${RESET}"
+                lxc list
+                echo -e "${GREEN}密码端口信息: ${RESET}"
+                cat log
+                break_end
+            ;;
+            2)
+                lxc stop --all
+                echo -e "${GREEN}已暂停所有小鸡${RESET}"
+                break_end
+            ;;
+            3)
+                lxc start --all
+                echo -e "${GREEN}已启动所有小鸡${RESET}"
+                break_end
+            ;;
+            4)
+                read -p $'\033[1;35m请输入要暂停的小鸡名字: \033[0m' name
+                if lxc list "$name" --format csv | grep -q "^$name$"; then
+                    lxc stop "$name"
+                    echo -e "${GREEN}${name} 已暂停${RESET}"
+                else
+                    echo -e "${RED}容器 ${name} 不存在${RESET}"
+                fi
+                break_end
+            ;;
+            5)
+                read -p $'\033[1;35m请输入要启动的小鸡名字: \033[0m' name
+                if lxc list "$name" --format csv | grep -q "^$name$"; then
+                    lxc start "$name"
+                    echo -e "${GREEN}${name} 已启动${RESET}"
+                else
+                    echo -e "${RED}容器 ${name} 不存在${RESET}"
+                fi
+                break_end
+            ;;
+            6)
+                batch_create_lxc
+            ;;
             7)
                 read -p $'\033[1;35m确定新增 LXC 小鸡吗? [y/n]: \033[0m' confirm
                 if [[ "$confirm" =~ ^[Yy]$ ]]; then
@@ -147,29 +184,65 @@ manage_lxc() {
                     break_end
                 fi
             ;;
-            8) read -p $'\033[1;35m请输入要删除的小鸡名字: \033[0m' name; lxc delete -f "$name"; echo -e "${GREEN}${name} 已删除${RESET}"; break_end ;;
-            9)
-                read -p $'\033[1;35m删除后无法恢复，确定删除所有 LXC 小鸡吗 [y/n]: \033[0m' confirm
-                if [[ "$confirm" =~ ^[Yy]$ ]]; then
-                    lxc list -c n --format csv | xargs -I {} lxc delete -f {}
-                    rm -f /root/{ssh_sh.sh,config.sh,ssh_bash.sh,buildone.sh,add_more.sh,build_ipv6_network.sh}
-                    echo -e "${GREEN}已删除所有 LXC 小鸡及相关脚本${RESET}"
+            8)
+                read -p $'\033[1;35m请输入要删除的小鸡的名字（如ex1，nat1等）: \033[0m' nat
+                if lxc list "$nat" --format csv | grep -q "^$nat$"; then
+                    lxc delete -f "$nat"
+                    echo -e "${green}${nat} 小鸡已删除${re}"
+                    
+                    # 同步日志，删除对应行
+                    if [ -f log ]; then
+                        grep -v "^$nat " log > log.tmp && mv log.tmp log
+                    fi
                 else
-                    echo -e "${YELLOW}已取消${RESET}"
+                    echo -e "${red}容器 ${nat} 不存在${re}"
                 fi
                 break_end
             ;;
-            0) break ;;
-            *) echo -e "${RED}无效选择，请输入 0~10${RESET}"; break_end ;;
+            9)
+                read -p $'\033[1;35m删除后无法恢复，确定要继续删除所有 LXC 小鸡吗 [y/n]: \033[0m' confirm
+                if [[ "$confirm" =~ ^[Yy]$ ]]; then   
+                    # 删除所有存在的 LXC 容器
+                    for c in $(lxc list -c n --format csv); do
+                        lxc delete -f "$c"
+                    done
+
+                    # 清理系统临时文件
+                    sudo find /var/log -type f -delete
+                    sudo find /var/tmp -type f -delete
+                    sudo find /tmp -type f -delete
+                    sudo find /var/cache/apt/archives -type f -delete
+
+                    # 删除相关脚本配置
+                    rm -f /usr/local/bin/{ssh_sh.sh,config.sh,ssh_bash.sh,check-dns.sh}
+                    rm -f /root/{ssh_sh.sh,config.sh,ssh_bash.sh,buildone.sh,add_more.sh,build_ipv6_network.sh}
+
+                    # 清空日志文件
+                    > log
+
+                    echo -e "${green}已删除所有 LXC 小鸡及相关配置${re}"
+                else
+                    echo -e "${yellow}已取消删除${re}"
+                fi
+                break_end
+            ;;
+            0)
+                break
+            ;;
+            *)
+                echo -e "${RED}无效选择，请输入 0~9${RESET}"
+                break_end
+            ;;
         esac
     done
 }
+
 
 # ================== 主菜单 ==================
 main_menu() {
     while true; do
         clear
-        echo -e "${GREEN}▶ LXD + LXC 菜单管理${RESET}"
+        echo -e "${GREEN}  LXD菜单管理${RESET}"
         echo "------------------------"
         echo -e "${GREEN}1. 环境检测${RESET}"
         echo -e "${GREEN}2. 安装 LXD 主体${RESET}"
