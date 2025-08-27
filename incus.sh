@@ -23,7 +23,7 @@ pause(){
 check_log(){
     for f in ./log /root/log /var/log/incus.log; do
         if [ -f "$f" ]; then
-            cat "$f"
+            grep -v -E "$(incus list -c n --format csv | paste -sd'|' -)" "$f"
             return
         fi
     done
