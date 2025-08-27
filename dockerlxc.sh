@@ -73,7 +73,7 @@ while true; do
     echo -e "${GREEN}2. 环境组件安装${RESET}"
     echo -e "${GREEN}3. 检测磁盘限制${RESET}"
     echo -e "${GREEN}4. 开设 Docker 小鸡${RESET}"
-    echo -e "${GREEN}5. 删除 Docker 容器和镜像${RESET}"
+    echo -e "${GREEN}5. 删除所有容器镜像${RESET}"
     echo -e "${GREEN}0. 退出脚本${RESET}"
     echo -e "${CYAN}===============================================${RESET}"
 
