@@ -120,9 +120,9 @@ manage_lxc() {
         echo -e "${CYAN}5. 启动指定 LXC 小鸡${RESET}"
         echo -e "${CYAN}6. 批量生成 LXC 小鸡${RESET}"
         echo -e "${CYAN}7. 新增 LXC 小鸡${RESET}"
-        echo -e "${RED}8.  删除指定 LXC 小鸡${RESET}"
-        echo -e "${RED}9.  删除所有 LXC 小鸡和配置${RESET}"
-        echo -e "${WHITE}0.返回上一级菜单${RESET}"
+        echo -e "${RED}8. 删除指定 LXC 小鸡${RESET}"
+        echo -e "${RED}9. 删除所有 LXC 小鸡和配置${RESET}"
+        echo -e "${WHITE}0. 返回上一级菜单${RESET}"
         echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
 
