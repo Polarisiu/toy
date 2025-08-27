@@ -95,8 +95,8 @@ manage_incus(){
         echo -e "${GREEN}4. 暂停指定小鸡${RESET}"
         echo -e "${GREEN}5. 启动指定小鸡${RESET}"
         echo -e "${GREEN}6. 新增开设小鸡${RESET}"
-        echo -e "${GREEN}7. 删除指定小鸡${RESET}"
-        echo -e "${GREEN}8. 删除所有小鸡和配置${RESET}"
+        echo -e "${RED}7. 删除指定小鸡${RESET}"
+        echo -e "${RED}8. 删除所有小鸡和配置${RESET}"
         echo -e "${GREEN}0. 返回主菜单${RESET}"
         echo -e "${GREEN}--------------------------------${RESET}"
         read -p "请输入你的选择: " sub_choice
