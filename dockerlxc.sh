@@ -49,7 +49,7 @@ docker_one() {
 }
 
 docker_batch() {
-    bash <(curl -sL https://raw.githubusercontent.com/Polarisiu/toy/main/glxj.sh)
+    bash <(curl -sL https://raw.githubusercontent.com/Polarisiu/toy/main/kdocker.sh)
 }
 
 docker_cleanup() {
