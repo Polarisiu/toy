@@ -119,12 +119,11 @@ manage_lxc() {
         echo -e "${CYAN}3. 启动所有 LXC 小鸡${RESET}"
         echo -e "${CYAN}4. 暂停指定 LXC 小鸡${RESET}"
         echo -e "${CYAN}5. 启动指定 LXC 小鸡${RESET}"
-        echo -e "${CYAN}6. 重装指定 LXC 小鸡系统${RESET}"
-        echo -e "${CYAN}7. 批量生成 LXC 小鸡${RESET}"
-        echo -e "${CYAN}8. 新增 LXC 小鸡${RESET}"
-        echo -e "${RED}9. 删除指定 LXC 小鸡${RESET}"
-        echo -e "${RED}10. 删除所有 LXC 小鸡和配置${RESET}"
-        echo -e "${WHITE}0. 返回上一级菜单${RESET}"
+        echo -e "${CYAN}6. 批量生成 LXC 小鸡${RESET}"
+        echo -e "${CYAN}7. 新增 LXC 小鸡${RESET}"
+        echo -e "${RED}8.  删除指定 LXC 小鸡${RESET}"
+        echo -e "${RED}9.  删除所有 LXC 小鸡和配置${RESET}"
+        echo -e "${WHITE}0.返回上一级菜单${RESET}"
         echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
 
@@ -134,9 +133,8 @@ manage_lxc() {
             3) lxc start --all; echo -e "${GREEN}已启动所有小鸡${RESET}"; break_end ;;
             4) read -p $'\033[1;35m请输入要暂停的小鸡名字: \033[0m' name; lxc stop "$name"; echo -e "${GREEN}${name} 已暂停${RESET}"; break_end ;;
             5) read -p $'\033[1;35m请输入要启动的小鸡名字: \033[0m' name; lxc start "$name"; echo -e "${GREEN}${name} 已启动${RESET}"; break_end ;;
-            6) read -p $'\033[1;35m请输入要重装的小鸡名字: \033[0m' name; lxc stop "$name" && lxc rebuild images:debian/11 "$name"; lxc start "$name"; echo -e "${GREEN}${name} 已重装系统完成${RESET}"; break_end ;;
-            7) batch_create_lxc ;;
-            8)
+            6) batch_create_lxc ;;
+            7)
                 read -p $'\033[1;35m确定新增 LXC 小鸡吗? [y/n]: \033[0m' confirm
                 if [[ "$confirm" =~ ^[Yy]$ ]]; then
                     install_pkg screen wget sudo dos2unix jq
@@ -150,8 +148,8 @@ manage_lxc() {
                     break_end
                 fi
             ;;
-            9) read -p $'\033[1;35m请输入要删除的小鸡名字: \033[0m' name; lxc delete -f "$name"; echo -e "${GREEN}${name} 已删除${RESET}"; break_end ;;
-            10)
+            8) read -p $'\033[1;35m请输入要删除的小鸡名字: \033[0m' name; lxc delete -f "$name"; echo -e "${GREEN}${name} 已删除${RESET}"; break_end ;;
+            9)
                 read -p $'\033[1;35m删除后无法恢复，确定删除所有 LXC 小鸡吗 [y/n]: \033[0m' confirm
                 if [[ "$confirm" =~ ^[Yy]$ ]]; then
                     lxc list -c n --format csv | xargs -I {} lxc delete -f {}
