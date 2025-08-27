@@ -1,7 +1,6 @@
 #!/bin/bash
 # LXD + LXC 菜单管理脚本（含批量生成）
 # 依赖: wget, curl, screen, sudo, dos2unix, jq
-# 作者: ChatGPT
 
 # ================== 颜色定义 ==================
 RED="\033[31m"
