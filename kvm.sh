@@ -111,7 +111,7 @@ while true; do
     echo -e "${GREEN}2. 配置环境 & 开设 KVM 小鸡${RESET}"
     echo -e "${GREEN}3. 删除所有虚拟机 & 清理网络${RESET}"
     echo -e "${GREEN}0. 退出${RESET}"
-    echo "${GREEN}=========================================${RESET}"
+    echo -e "${GREEN}=========================================${RESET}"
     read -p "请选择操作 [0-3]: " choice
 
     case $choice in
