@@ -7,6 +7,10 @@
 SCRIPT_URL="https://raw.githubusercontent.com/oneclickvirt/docker/main/scripts/onedocker.sh"
 SCRIPT_FILE="onedocker.sh"
 
+# 颜色定义
+green="\033[32m"
+reset="\033[0m"
+
 # -------------------------------
 # 下载 onedocker.sh
 # -------------------------------
@@ -98,12 +102,12 @@ query_container() {
 # -------------------------------
 while true; do
     echo ""
-    echo "========== OneDocker 容器管理 =========="
-    echo "1) 创建容器"
-    echo "2) 删除容器"
-    echo "3) 查询容器信息"
-    echo "0) 退出"
-    echo "======================================="
+    echo -e "${green}========== OneDocker 容器管理 ==========${reset}"
+    echo -e "${green}1) 创建容器${reset}"
+    echo -e "${green}2) 删除容器${reset}"
+    echo -e "${green}3) 查询容器信息${reset}"
+    echo -e "${green}0) 退出${reset}"
+    echo -e "${green}=======================================${reset}"
     read -p "请输入选项: " choice
 
     case "$choice" in
