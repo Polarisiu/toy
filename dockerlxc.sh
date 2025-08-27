@@ -36,44 +36,31 @@ swap_manage() {
 
 docker_install() {
     echo -e "${YELLOW}开始安装 Docker${RESET}"
-    curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/dockerinstall.sh -o dockerinstall.sh
+    curl -L https://raw.githubusercontent.com/oneclickvirt/docker/main/scripts/dockerinstall.sh -o dockerinstall.sh
     chmod +x dockerinstall.sh
     bash dockerinstall.sh
 }
 
 docker_one() {
-    install_tool screen
-    curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/onedocker.sh -o onedocker.sh
-    chmod +x onedocker.sh
-    screen -S onedocker -dm bash onedocker.sh
-    echo -e "${GREEN}单个 Docker 小鸡已启动在后台${RESET}"
+    echo -e "${YELLOW}检测磁盘限制${RESET}"
+    curl -L https://raw.githubusercontent.com/oneclickvirt/docker/refs/heads/main/extra_scripts/disk_test.sh -o disk_test.sh
+    chmod +x disk_test.sh 
+    bash disk_test.sh
 }
 
 docker_batch() {
-    install_tool screen
-    curl -L https://raw.githubusercontent.com/spiritLHLS/docker/main/scripts/create_docker.sh -o create_docker.sh
-    chmod +x create_docker.sh
-    screen -S dockerbatch -dm bash create_docker.sh
-    echo -e "${GREEN}批量 Docker 小鸡已启动在后台${RESET}"
+    bash <(curl -sL https://raw.githubusercontent.com/Polarisiu/toy/main/kdocker.sh)
 }
 
 docker_cleanup() {
     echo -e "${YELLOW}删除 ndpresponder Docker 容器和镜像${RESET}"
-    containers=$(docker ps -aq --format '{{.Names}}' | grep -E '^ndpresponder')
-    [ -n "$containers" ] && docker rm -f $containers
-
-    images=$(docker images -aq --format '{{.Repository}}:{{.Tag}}' | grep -E '^ndpresponder')
-    [ -n "$images" ] && docker rmi $images
-
-    rm -rf dclog
+    docker ps -a --format '{{.Names}}' | grep -vE '^ndpresponder' | xargs -r docker rm -f
+    docker images --format '{{.Repository}}:{{.Tag}} {{.ID}}' | grep -v 'ndpresponder' | awk '{print $2}' | xargs -r docker rmi
+    rm -rf dclog test
+    ls
     echo -e "${GREEN}清理完成${RESET}"
 }
 
-system_reboot() {
-    echo -e "${YELLOW}系统即将重启...${RESET}"
-    sleep 2
-    reboot
-}
 
 # ========================================
 # 主菜单
@@ -83,15 +70,14 @@ while true; do
     clear
     echo -e "${CYAN}================= VPS 管理菜单 =================${RESET}"
     echo -e "${GREEN}1. 开设/移除 Swap${RESET}"
-    echo -e "${GREEN}2. 安装 Docker${RESET}"
-    echo -e "${GREEN}3. 单个开设 Docker 小鸡${RESET}"
-    echo -e "${GREEN}4. 批量开设 Docker 小鸡${RESET}"
+    echo -e "${GREEN}2. 环境组件安装${RESET}"
+    echo -e "${GREEN}3. 检测磁盘限制${RESET}"
+    echo -e "${GREEN}4. 开设 Docker 小鸡${RESET}"
     echo -e "${GREEN}5. 删除 Docker 容器和镜像${RESET}"
-    echo -e "${GREEN}6. 重启系统${RESET}"
     echo -e "${GREEN}0. 退出脚本${RESET}"
     echo -e "${CYAN}===============================================${RESET}"
 
-    read -p "请输入你的选择 [0-6]: " choice
+    read -p "请输入你的选择 [0-5]: " choice
 
     case "$choice" in
         1) swap_manage ;;
@@ -99,7 +85,6 @@ while true; do
         3) docker_one ;;
         4) docker_batch ;;
         5) docker_cleanup ;;
-        6) system_reboot ;;
         0) echo -e "${GREEN}退出脚本${RESET}"; exit 0 ;;
         *) echo -e "${RED}输入错误，请输入 0-6${RESET}"; sleep 2 ;;
     esac
