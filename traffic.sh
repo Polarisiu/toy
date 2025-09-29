@@ -8,11 +8,11 @@ NC="\033[0m"
 
 # ================== 菜单函数 ==================
 show_menu() {
-    echo -e "${GREEN}=================== TrafficCop 管理 ===================${NC}"
-    echo -e "${GREEN}1) 一键安装脚本${NC}"
-    echo -e "${GREEN}2) 完全卸载脚本${NC}"
+    echo -e "${GREEN}==== TrafficCop 管理 =====${NC}"
+    echo -e "${GREEN}1) 安装脚本${NC}"
+    echo -e "${GREEN}2) 卸载脚本${NC}"
     echo -e "${GREEN}0) 退出${NC}"
-    echo -n -e "${YELLOW}请输入选项: ${NC}"
+    echo -n -e "${GREEN}请输入选项: ${NC}"
 }
 
 # ================== 功能函数 ==================
