@@ -10,7 +10,7 @@ BACKUP_FILE="/etc/sysctl.conf.bak"
 
 show_menu() {
     echo -e "${GREEN}===== TCP 优化管理菜单 =====${NC}"
-    echo -e "${GREEN}1) 下载 TCP 优化脚本${NC}"
+    echo -e "${GREEN}1) 安装 TCP 优化脚本${NC}"
     echo -e "${GREEN}2) 备份 sysctl 配置${NC}"
     echo -e "${GREEN}3) 跨境优化 (global)${NC}"
     echo -e "${GREEN}4) 自动优化 (auto)${NC}"
