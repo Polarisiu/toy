@@ -115,12 +115,12 @@ delete_all_cts() {
 menu() {
     clear
     echo -e "${GREEN}========================================${RESET}"
-    echo -e "${CYAN}      PVE 容器(CT) 一键管理菜单${RESET}"
+    echo -e "${GREEN}      PVE 容器 管理菜单                  ${RESET}"
     echo -e "${GREEN}========================================${RESET}"
     echo -e "${GREEN}1) 开设容器${RESET}"
     echo -e "${GREEN}2) 删除指定容器${RESET}"
     echo -e "${GREEN}3) 查看容器信息${RESET}"
-    echo -e "${GREEN}4) 删除所有容器 (危险操作)${RESET}"
+    echo -e "${GREEN}4) 删除所有容器${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
     echo -e "${GREEN}========================================${RESET}"
     read -p "请输入选项: " choice
