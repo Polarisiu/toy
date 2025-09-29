@@ -123,8 +123,8 @@ while true; do
     echo -e "${GREEN}1) 安装服务${RESET}"
     echo -e "${GREEN}2) 卸载服务${RESET}"
     echo -e "${GREEN}3) 查看服务状态${RESET}"
-    echo -e "${GREEN}4) 退出${RESET}"
-    read -p "$(echo -e ${GREEN}请选择操作 [1-4]: ${RESET})" choice
+    echo -e "${GREEN}0) 退出${RESET}"
+    read -p "$(echo -e ${GREEN}请选择操作: ${RESET})" choice
 
     case "$choice" in
         1)
@@ -136,7 +136,7 @@ while true; do
         3)
             status_service
             ;;
-        4)
+        0)
             echo -e "${GREEN}退出脚本${RESET}"
             exit 0
             ;;
