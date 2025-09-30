@@ -92,7 +92,7 @@ EOF
     systemctl daemon-reload
     systemctl start "$SERVICE_NAME"
     systemctl enable "$SERVICE_NAME"
-    echo -e "${GREEN}安装完成，服务正在运行。${RESET}"
+    echo -e "${GREEN}安装完成，服务正在运行,访问端口: $PORT${RESET}"
 }
 
 # 卸载服务
