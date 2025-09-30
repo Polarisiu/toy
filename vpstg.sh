@@ -9,6 +9,7 @@ menu() {
     echo -e "${GREEN}=== VPSTG 通知管理 ===${RESET}"
     echo -e "${GREEN}1) 系统信息${RESET}"
     echo -e "${GREEN}2) 网卡信息${RESET}"
+    echo -e "${GREEN}3) Docker信息${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
     read -p $'\033[32m请选择操作: \033[0m' choice
     case $choice in
@@ -21,6 +22,11 @@ menu() {
             echo -e "${GREEN}正在运行网卡信息脚本...${RESET}"
             bash <(curl -sL https://raw.githubusercontent.com/Polarisiu/toy/main/vpsw.sh)
             pause
+            ;;
+        3)
+            echo -e "${GREEN}正在运行Docker信息脚本...${RESET}"
+            bash <(curl -sL https://raw.githubusercontent.com/Polarisiu/toy/main/vpsd.sh)
+            pausevpsd.sh
             ;;
         0)
             exit 0
