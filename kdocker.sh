@@ -102,7 +102,7 @@ query_container() {
 # -------------------------------
 while true; do
     echo ""
-    echo -e "${green}========== OneDocker 容器管理 ==========${reset}"
+    echo -e "${green}========== Docker 容器管理 ==========${reset}"
     echo -e "${green}1) 创建容器${reset}"
     echo -e "${green}2) 删除容器${reset}"
     echo -e "${green}3) 查询容器信息${reset}"
