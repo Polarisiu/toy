@@ -230,7 +230,7 @@ manage_lxc() {
                 break
             ;;
             *)
-                echo -e "${RED}无效选择，请输入 0~9${RESET}"
+                echo -e "${RED}无效选择${RESET}"
                 break_end
             ;;
         esac
