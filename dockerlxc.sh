@@ -101,7 +101,7 @@ while true; do
         6) docker_restart_all ;;
         7) docker_ssh_all ;;
         0) echo -e "${GREEN}退出脚本${RESET}"; exit 0 ;;
-        *) echo -e "${RED}无效选项${RESET}"; sleep 2 ;;
+        *) echo -e "${RED}无效选项，请重新输入${RESET}"; sleep 2 ;;
     esac
 
     echo -e "${CYAN}按回车键返回主菜单...${RESET}"
