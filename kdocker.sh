@@ -115,6 +115,6 @@ while true; do
         2) remove_container ;;
         3) query_container ;;
         0) echo "👋 退出"; exit 0 ;;
-        *) echo "⚠️ 无效选项，请重新输入" ;;
+        *) echo " 无效选项，请重新输入" ;;
     esac
 done
