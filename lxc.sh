@@ -242,13 +242,11 @@ manage_lxc() {
 main_menu() {
     while true; do
         clear
-        echo -e "${GREEN}  LXD菜单管理${RESET}"
-        echo "------------------------"
+        echo -e "${GREEN}======LXD菜单管理======${RESET}"
         echo -e "${GREEN}1. 环境检测${RESET}"
         echo -e "${GREEN}2. 安装 LXD 主体${RESET}"
         echo -e "${GREEN}3. 管理 LXC 小鸡${RESET}"
         echo -e "${GREEN}0. 退出${RESET}"
-        echo "---------GREEN---------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' menu
 
         case $menu in
