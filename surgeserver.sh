@@ -1,7 +1,7 @@
 #!/bin/bash
 # ServerTraffic 管理脚本（菜单版，绿色字体，直接使用系统 Python + 系统 psutil）
 
-SERVICE_NAME="servertraffic"
+SERVICE_NAME="surgeserver"
 PY_FILE="/root/${SERVICE_NAME}.py"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 
