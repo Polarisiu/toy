@@ -181,7 +181,7 @@ uninstall_script() {
 # ================== 菜单 ==================
 menu() {
     while true; do
-        echo ""
+        clear
         echo -e "${GREEN}===== VPS 网络管理菜单 =====${RESET}"
         echo -e "${GREEN}1) 查看并发送网络信息到 Telegram${RESET}"
         echo -e "${GREEN}2) 修改 Telegram 配置${RESET}"
