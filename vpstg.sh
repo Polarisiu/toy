@@ -26,7 +26,7 @@ menu() {
         3)
             echo -e "${GREEN}正在运行Docker信息脚本...${RESET}"
             bash <(curl -sL https://raw.githubusercontent.com/Polarisiu/toy/main/vpsd.sh)
-            pausevpsd.sh
+            pause
             ;;
         0)
             exit 0
