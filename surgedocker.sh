@@ -1,8 +1,8 @@
 #!/bin/bash
 # Docker 监控管理脚本（菜单版，绿色字体，可自定义端口）
 
-SERVICE_NAME="docker-monitor"
-PY_FILE="/root/docker_monitor.py"
+SERVICE_NAME="surgedocker"
+PY_FILE="/root/surgedocker.py"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 
 # 颜色
