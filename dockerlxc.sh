@@ -79,7 +79,7 @@ docker_ssh_all() {
 
 while true; do
     clear
-    echo -e "${CYAN}================= VPS 管理菜单 =================${RESET}"
+    echo -e "${GREEN}================= VPS 管理菜单 =================${RESET}"
     echo -e "${GREEN}1. 开设/移除 Swap${RESET}"
     echo -e "${GREEN}2. 环境组件安装${RESET}"
     echo -e "${GREEN}3. 检测磁盘限制${RESET}"
@@ -88,9 +88,9 @@ while true; do
     echo -e "${GREEN}6. 启动所有容器${RESET}"
     echo -e "${GREEN}7. 启动容器 SSH 服务${RESET}"
     echo -e "${GREEN}0. 退出脚本${RESET}"
-    echo -e "${CYAN}===============================================${RESET}"
+    echo -e "${GREEN}===============================================${RESET}"
 
-    read -p "请输入你的选择 [0-7]: " choice
+    read -p "请输入你的选择: " choice
 
     case "$choice" in
         1) swap_manage ;;
