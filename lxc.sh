@@ -123,8 +123,8 @@ manage_lxc() {
         echo -e "${GREEN}5. 启动指定 LXC 小鸡${RESET}"
         echo -e "${GREEN}6. 批量生成 LXC 小鸡${RESET}"
         echo -e "${GREEN}7. 新增 LXC 小鸡${RESET}"
-        echo -e "${RED}8. 删除指定 LXC 小鸡${RESET}"
-        echo -e "${RED}9. 删除所有 LXC 小鸡和配置${RESET}"
+        echo -e "${GREEN}8. 删除指定 LXC 小鸡${RESET}"
+        echo -e "${GREEN}9. 删除所有 LXC 小鸡和配置${RESET}"
         echo -e "${GREEN}0. 返回上一级菜单${RESET}"
         echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
@@ -247,7 +247,7 @@ main_menu() {
         echo -e "${GREEN}1. 环境检测${RESET}"
         echo -e "${GREEN}2. 安装 LXD 主体${RESET}"
         echo -e "${GREEN}3. 管理 LXC 小鸡${RESET}"
-        echo -e "${WHITE}0. 退出${RESET}"
+        echo -e "${GREEN}0. 退出${RESET}"
         echo "---------GREEN---------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' menu
 
