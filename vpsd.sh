@@ -170,11 +170,15 @@ uninstall_script(){
         rm -f "$TG_CONFIG_FILE"
         rm -rf /opt/vpsd
         echo -e "${green}✅ 卸载完成,相关数据和定时任务已删除${re}"
+        # 解除脚本引用，避免自删除报错
+        trap '' EXIT
+        rm -- "$0"
         exit 0
     else
         echo "取消卸载"
     fi
 }
+
 
 # ================== 菜单 ==================
 menu(){
