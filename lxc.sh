@@ -113,7 +113,6 @@ manage_lxc() {
     check_lxc || return
 
     while true; do
-        clear
         echo -e "${GREEN} 管理 LXC 小鸡${RESET}"
         echo "------------------------"
         echo -e "${GREEN}1. 查看所有 LXC 小鸡${RESET}"
