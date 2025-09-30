@@ -230,7 +230,7 @@ manage_lxc() {
                 break
             ;;
             *)
-                echo -e "${RED}无效选择${RESET}"
+                echo -e "${RED}无效选项，请重新输入${RESET}"
                 break_end
             ;;
         esac
@@ -254,7 +254,7 @@ main_menu() {
             2) install_lxd ;;
             3) manage_lxc ;;
             0) exit 0 ;;
-            *) echo -e "${RED}无效选择${RESET}"; break_end ;;
+            *) echo -e "${RED}无效选项，请重新输入${RESET}"; break_end ;;
         esac
     done
 }
