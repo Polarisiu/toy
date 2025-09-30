@@ -5,7 +5,6 @@ RED="\033[31m"
 RESET="\033[0m"
 
 menu() {
-    clear
     echo -e "${GREEN}=== PVE 管理菜单 ===${RESET}"
     echo -e "${GREEN}1) 添加 SWAP${RESET}"
     echo -e "${GREEN}2) 检测环境${RESET}"
@@ -15,7 +14,6 @@ menu() {
     echo -e "${GREEN}6) 开设 KVM 小鸡${RESET}"
     echo -e "${GREEN}7) 开设 LXC 小鸡${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    echo
     read -p $'\033[32m请选择操作: \033[0m' choice
     case $choice in
         1)
