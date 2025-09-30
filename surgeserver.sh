@@ -113,7 +113,6 @@ status_service() {
 
 # 菜单循环
 while true; do
-    clear
     echo -e "${GREEN}======================================${RESET}"
     echo -e "${GREEN}        系统监控 管理菜单              ${RESET}"
     echo -e "${GREEN}======================================${RESET}"
