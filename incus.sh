@@ -190,7 +190,7 @@ manage_incus(){
                 break
                 ;;
             *)
-                echo -e "${RED}无效选择${RESET}"
+                echo -e "${RED}无效选项，请重新输入${RESET}"
                 pause
                 ;;
         esac
@@ -217,7 +217,7 @@ main_menu(){
             2) install_incus ;;
             3) manage_incus ;;
             0) exit 0 ;;
-            *) echo -e "${RED}无效选择${RESET}" ; pause ;;
+            *) echo -e "${RED}无效选项，请重新输入${RESET}" ; pause ;;
         esac
     done
 }
