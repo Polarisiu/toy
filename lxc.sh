@@ -247,7 +247,7 @@ main_menu() {
         echo -e "${GREEN}2. 安装 LXD 主体${RESET}"
         echo -e "${GREEN}3. 管理 LXC 小鸡${RESET}"
         echo -e "${GREEN}0. 退出${RESET}"
-        read -p $'\033[1;91m请输入你的选择: \033[0m' menu
+        read -p $'\033[32m请选择操作: \033[0m' menu
 
         case $menu in
             1) pre_check ;;
