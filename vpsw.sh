@@ -21,7 +21,6 @@ initialize_script() {
         mkdir -p "$(dirname "$SCRIPT_PATH")"
         curl -sSL "$SCRIPT_URL" -o "$SCRIPT_PATH"
         chmod +x "$SCRIPT_PATH"
-        echo -e "${GREEN}✅ 脚本已下载到 $SCRIPT_PATH${RESET}"
     fi
 }
 
