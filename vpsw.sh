@@ -6,7 +6,7 @@
 # ================== 配置 ==================
 SCRIPT_URL="https://raw.githubusercontent.com/Polarisiu/tool/main/network.sh"  # 脚本下载地址
 SCRIPT_PATH="/opt/vpsw/vps_network.sh"  # 脚本存放路径
-CONFIG_FILE="/opt/vpsw/.vps_tg_config"
+CONFIG_FILE="/opt/vpsw/.vps_tgg_config"
 OUTPUT_FILE="/tmp/vps_network_info.txt"
 
 GREEN='\033[0;32m'
