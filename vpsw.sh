@@ -160,7 +160,7 @@ setup_cron_job() {
         4) crontab -l 2>/dev/null | grep -v "$CRON_CMD" | crontab -
            echo -e "${RED}❌ 已删除本脚本相关定时任务${RESET}" ;;
         5) echo -e "${YELLOW}当前定时任务:${RESET}"
-           crontab -l 2>/dev/null | grep "$CRON_CMD" || echo "⚠️ 没有找到本脚本相关定时任务" ;;
+           crontab -l 2>/dev/null | grep "$CRON_CMD" || echo "没有找到本脚本相关定时任务" ;;
         6) return ;;
         *) echo -e "${RED}无效选择${RESET}" ;;
     esac
@@ -169,7 +169,7 @@ setup_cron_job() {
 
 # ================== 卸载脚本 ==================
 uninstall_script() {
-    read -rp "⚠️ 确认卸载脚本及清理定时任务吗？(y/N): " confirm
+    read -rp "确认卸载脚本及清理定时任务吗？(y/N): " confirm
     [[ "$confirm" =~ ^[Yy]$ ]] || return
     crontab -l 2>/dev/null | grep -v "bash $SCRIPT_PATH" | crontab -
     rm -f "$SCRIPT_PATH" "$CONFIG_FILE" "$OUTPUT_FILE"
