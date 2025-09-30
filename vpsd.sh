@@ -10,7 +10,7 @@ re="\033[0m"
 # ================== 基础配置 ==================
 SCRIPT_PATH="/opt/vpsd/docker_info.sh"
 TG_CONFIG_FILE="/opt/vpsd/.vps_tgd_config"
-SCRIPT_URL="https://raw.githubusercontent.com/Polarisiu/toy/main/vpsd.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/iu683/uu/main/uu.sh"
 
 # ================== 下载或更新脚本 ==================
 download_script(){
@@ -170,11 +170,14 @@ uninstall_script(){
         rm -f "$TG_CONFIG_FILE"
         rm -rf /opt/vpsd
         echo -e "${green}✅ 卸载完成,相关数据和定时任务已删除${re}"
+        # 自删除当前运行的脚本
+        rm -- "$0"
         exit 0
     else
         echo "取消卸载"
     fi
 }
+
 
 # ================== 菜单 ==================
 menu(){
