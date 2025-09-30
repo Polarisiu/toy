@@ -79,7 +79,7 @@ docker_ssh_all() {
 
 while true; do
     clear
-    echo -e "${GREEN}================= VPS 管理菜单 =================${RESET}"
+    echo -e "${GREEN}========== Docker 小鸡 管理菜单 ================${RESET}"
     echo -e "${GREEN}1. 开设/移除 Swap${RESET}"
     echo -e "${GREEN}2. 环境组件安装${RESET}"
     echo -e "${GREEN}3. 检测磁盘限制${RESET}"
@@ -101,7 +101,7 @@ while true; do
         6) docker_restart_all ;;
         7) docker_ssh_all ;;
         0) echo -e "${GREEN}退出脚本${RESET}"; exit 0 ;;
-        *) echo -e "${RED}输入错误，请输入 0-7${RESET}"; sleep 2 ;;
+        *) echo -e "${RED}无效选项${RESET}"; sleep 2 ;;
     esac
 
     echo -e "${CYAN}按回车键返回主菜单...${RESET}"
