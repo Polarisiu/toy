@@ -173,6 +173,7 @@ uninstall_script() {
     [[ "$confirm" =~ ^[Yy]$ ]] || return
     crontab -l 2>/dev/null | grep -v "bash $SCRIPT_PATH" | crontab -
     rm -f "$SCRIPT_PATH" "$CONFIG_FILE" "$OUTPUT_FILE"
+    rm -rf /opt/vpsw
     echo -e "${GREEN}✅ 脚本已卸载${RESET}"
     exit 0
 }
