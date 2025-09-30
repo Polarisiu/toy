@@ -8,6 +8,7 @@ NC="\033[0m"
 
 # ================== 菜单函数 ==================
 show_menu() {
+    clear
     echo -e "${GREEN}==== TrafficCop 管理 =====${NC}"
     echo -e "${GREEN}1) 安装脚本${NC}"
     echo -e "${GREEN}2) 卸载脚本${NC}"
