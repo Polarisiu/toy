@@ -254,7 +254,7 @@ main_menu() {
             2) install_lxd ;;
             3) manage_lxc ;;
             0) exit 0 ;;
-            *) echo -e "${RED}无效选择，请输入 0~3${RESET}"; break_end ;;
+            *) echo -e "${RED}无效选择${RESET}"; break_end ;;
         esac
     done
 }
