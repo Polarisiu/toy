@@ -101,7 +101,7 @@ query_container() {
 # 主菜单
 # -------------------------------
 while true; do
-    echo ""
+    clear
     echo -e "${green}========== Docker 容器管理 ==========${reset}"
     echo -e "${green}1) 创建容器${reset}"
     echo -e "${green}2) 删除容器${reset}"
