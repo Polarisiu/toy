@@ -5,6 +5,7 @@ RED="\033[31m"
 RESET="\033[0m"
 
 menu() {
+    clear
     echo -e "${GREEN}=== PVE 管理菜单 ===${RESET}"
     echo -e "${GREEN}1) 添加 SWAP${RESET}"
     echo -e "${GREEN}2) 检测环境${RESET}"
