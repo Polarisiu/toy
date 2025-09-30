@@ -147,6 +147,7 @@ status_service() {
 
 # 菜单
 while true; do
+    clear
     echo -e "${GREEN}=======随机图片API===============${RESET}"
     echo -e "${GREEN} 1) 安装依赖 & 随机图片服务${RESET}"
     echo -e "${GREEN} 2) 卸载服务${RESET}"
