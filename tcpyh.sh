@@ -9,6 +9,7 @@ SCRIPT_NAME="tcp-optimize.sh"
 BACKUP_FILE="/etc/sysctl.conf.bak"
 
 show_menu() {
+    clear
     echo -e "${GREEN}===== TCP 优化管理菜单 =====${NC}"
     echo -e "${GREEN}1) 安装 TCP 优化脚本${NC}"
     echo -e "${GREEN}2) 备份 sysctl 配置${NC}"
