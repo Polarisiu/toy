@@ -115,7 +115,7 @@ delete_all_cts() {
 menu() {
     clear
     echo -e "${GREEN}========================================${RESET}"
-    echo -e "${GREEN}      PVE 容器 管理菜单                  ${RESET}"
+    echo -e "${GREEN}      PVE容器 LXC 管理菜单               ${RESET}"
     echo -e "${GREEN}========================================${RESET}"
     echo -e "${GREEN}1) 开设容器${RESET}"
     echo -e "${GREEN}2) 删除指定容器${RESET}"
