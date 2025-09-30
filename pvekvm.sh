@@ -117,12 +117,12 @@ delete_all_vms() {
 menu() {
     clear
     echo -e "${GREEN}========================================${RESET}"
-    echo -e "${CYAN}      PVE 虚拟机一键管理菜单${RESET}"
+    echo -e "${GREEN}      PVE容器 KVM 管理菜单               ${RESET}"
     echo -e "${GREEN}========================================${RESET}"
     echo -e "${GREEN}1) 开设虚拟机${RESET}"
     echo -e "${GREEN}2) 删除指定虚拟机${RESET}"
     echo -e "${GREEN}3) 查看虚拟机信息${RESET}"
-    echo -e "${GREEN}4) 删除所有虚拟机 (危险操作)${RESET}"
+    echo -e "${GREEN}4) 删除所有虚拟机${RESET}"
     echo -e "${GREEN}0) 退出"
     echo -e "${GREEN}========================================${RESET}"
     read -p "请输入选项: " choice
