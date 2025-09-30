@@ -183,7 +183,7 @@ view_log() {
 # 菜单
 show_menu() {
     clear
-    echo -e "${GREEN}=====🚀 iperf3 VPS 双端测速菜单=====${RESET}"
+    echo -e "${GREEN}===== iperf3 VPS 双端测速菜单=====${RESET}"
     echo -e "${GREEN}1) 在 VPS A 上运行服务端 (前台)${RESET}"
     echo -e "${GREEN}2) 启动后台服务端${RESET}"
     echo -e "${GREEN}3) 停止后台服务端${RESET}"
