@@ -300,6 +300,7 @@ uninstall_script(){
         crontab -l 2>/dev/null | grep -v "$CRON_CMD" | crontab -
         rm -f "$SCRIPT_PATH"
         rm -f "$TG_CONFIG_FILE"
+        rm -rf /opt/vpsx
         echo -e "${green}✅ 卸载完成,相关数据和定时任务已删除${re}"
         exit 0
     else
