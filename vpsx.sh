@@ -293,7 +293,7 @@ pause_return(){
 
 # ================== 卸载脚本 ==================
 uninstall_script(){
-    echo -e "${yellow}⚠️ 即将卸载 tg.sh 脚本及配置和定时任务${re}"
+    echo -e "${yellow}⚠️ 即将卸载脚本及配置和定时任务${re}"
     read -rp "确认卸载吗？(y/N): " confirm
     if [[ "$confirm" =~ ^[Yy]$ ]]; then
         CRON_CMD="bash $SCRIPT_PATH send"
