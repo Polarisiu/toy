@@ -131,6 +131,7 @@ view_logs() {
 }
 
 while true; do
+    clear
     echo -e "${GREEN}=========================================${RESET}"
     echo -e "${GREEN}        网站管理菜单                      ${RESET}"
     echo -e "${GREEN}=========================================${RESET}"
