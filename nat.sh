@@ -12,7 +12,6 @@ menu() {
     echo -e "${GREEN}3) Docker 小鸡${RESET}"
     echo -e "${GREEN}4) Incus 小鸡${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    echo
     read -p $'\033[32m请选择操作: \033[0m' choice
     case $choice in
         1)
