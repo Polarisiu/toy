@@ -117,7 +117,6 @@ status_service() {
 
 # 菜单循环
 while true; do
-    clear
     echo -e "${GREEN}======================================${RESET}"
     echo -e "${GREEN}        Docker 监控管理菜单           ${RESET}"
     echo -e "${GREEN}======================================${RESET}"
