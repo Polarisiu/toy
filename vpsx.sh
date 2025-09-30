@@ -17,7 +17,6 @@ download_script(){
     mkdir -p "$(dirname "$SCRIPT_PATH")"
     curl -sSL "$SCRIPT_URL" -o "$SCRIPT_PATH"
     chmod +x "$SCRIPT_PATH"
-    echo -e "${green}✅ 脚本已保存到 $SCRIPT_PATH${re}"
 }
 
 # ================== 系统检测函数 ==================
@@ -311,7 +310,7 @@ uninstall_script(){
 # ================== 菜单 ==================
 menu(){
   while true; do
-    echo ""
+    clear
     echo -e "${green}====== VPS 管理菜单 ======${re}"
     echo -e "${green}1) 查看 VPS 信息${re}"
     echo -e "${green}2) 发送 VPS 信息到 Telegram${re}"
