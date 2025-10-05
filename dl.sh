@@ -203,7 +203,7 @@ view_logs() {
 
 while true; do
     show_menu
-    read -p "请选择操作：" choice
+    read -p "$(echo -e ${GREEN}请输入选项: ${RESET})：" choice
     case $choice in
         1) install_tim ;;
         2) uninstall_tim ;;
