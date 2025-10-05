@@ -192,7 +192,6 @@ show_menu() {
     echo -e "${GREEN}6) 删除日志文件${RESET}"
     echo -e "${GREEN}7) 查看实时日志${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    echo -e "${GREEN}====================================${RESET}"
 }
 
 main() {
