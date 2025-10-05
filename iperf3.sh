@@ -199,7 +199,7 @@ main() {
     install_iperf3
     while true; do
         show_menu
-        read -p "请选择操作: " choice
+        read -p "$(echo -e ${GREEN}请选择操作:${RESET}) " choice
         case $choice in
             1) run_server ;;
             2) start_server ;;
@@ -209,7 +209,7 @@ main() {
             6) delete_log ;;
             7) view_log ;;
             0) exit 0 ;;
-            *) echo "❌ 无效选择，请重新输入" ; read -p "按回车键返回菜单..." ;;
+            *) echo -e "${RED}❌ 无效选择，请重新输入${RESET})" ; read -p "按回车键返回菜单..." ;;
         esac
     done
 }
