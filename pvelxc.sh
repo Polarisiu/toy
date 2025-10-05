@@ -122,7 +122,6 @@ menu() {
     echo -e "${GREEN}3) 查看容器信息${RESET}"
     echo -e "${GREEN}4) 删除所有容器${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    echo -e "${GREEN}========================================${RESET}"
     read -p "请输入选项: " choice
     case $choice in
         1) create_ct ;;
