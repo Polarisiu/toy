@@ -316,7 +316,7 @@ menu(){
     echo -e "${green}2) 发送 VPS 信息到 Telegram${re}"
     echo -e "${green}3) 修改 Telegram 配置${re}"
     echo -e "${green}4) 设置定时任务${re}"
-    echo -e "${green}5) 卸载脚本${re}"
+    echo -e "${green}5) 卸载${re}"
     echo -e "${green}0) 退出${re}"
     read -rp "请选择操作: " choice
     case $choice in
