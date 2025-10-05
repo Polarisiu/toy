@@ -209,7 +209,7 @@ main() {
             6) delete_log ;;
             7) view_log ;;
             0) exit 0 ;;
-            *) echo -e "${RED}❌ 无效选择，请重新输入${RESET})" ; read -p "按回车键返回菜单..." ;;
+            *) echo -e "${RED}❌ 无效选择，请重新输入${RESET}" ; read -p "按回车键返回菜单..." ;;
         esac
     done
 }
