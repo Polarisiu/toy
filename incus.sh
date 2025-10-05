@@ -87,8 +87,7 @@ install_incus(){
 manage_incus(){
     while true; do
         clear
-        echo -e "${GREEN}   管理 incus 小鸡${RESET}"
-        echo -e "${GREEN}--------------------------------${RESET}"
+        echo -e "${GREEN}------管理 incus 小鸡--------${RESET}"
         echo -e "${GREEN}1. 查看所有小鸡状态${RESET}"
         echo -e "${GREEN}2. 暂停所有小鸡${RESET}"
         echo -e "${GREEN}3. 启动所有小鸡${RESET}"
@@ -98,7 +97,6 @@ manage_incus(){
         echo -e "${GREEN}7. 删除指定小鸡${RESET}"
         echo -e "${GREEN}8. 删除所有小鸡和配置${RESET}"
         echo -e "${GREEN}0. 返回主菜单${RESET}"
-        echo -e "${GREEN}--------------------------------${RESET}"
         read -p "请输入你的选择: " sub_choice
 
         case $sub_choice in
@@ -204,13 +202,11 @@ manage_incus(){
 main_menu(){
     while true; do
         clear
-        echo -e "${GREEN} Incus 管理脚本${RESET}"
-        echo -e "${GREEN}--------------------------------${RESET}"
+        echo -e "${GREEN}----Incus 管理脚本-------${RESET}"
         echo -e "${GREEN}1. 开设SWAP${RESET}"
         echo -e "${GREEN}2. 安装incus${RESET}"
         echo -e "${GREEN}3. 管理 incus 小鸡${RESET}"
         echo -e "${GREEN}0. 退出${RESET}"
-        echo -e "${GREEN}--------------------------------${RESET}"
         read -p "请输入你的选择: " choice
         case $choice in
             1) curl -L https://raw.githubusercontent.com/oneclickvirt/incus/main/scripts/swap.sh -o swap.sh && chmod +x swap.sh && bash swap.sh ;;
