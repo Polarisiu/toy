@@ -140,7 +140,7 @@ while true; do
     echo -e "${GREEN}3) 编辑页面${RESET}"
     echo -e "${GREEN}4) 查看访问日志${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    read -p "请选择操作：" choice
+    read -p "$(echo -e ${GREEN}请输入选项: ${RESET})" choice
     case $choice in
         1) install_site ;;
         2) uninstall_site ;;
