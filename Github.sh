@@ -290,7 +290,7 @@ uninstall_tool() {
 menu() {
     clear
     echo -e "${GREEN}==============================${RESET}"
-    echo -e "${GREEN} VPS <-> GitHub 工具 ${RESET}"
+    echo -e "${GREEN}    VPS <-> GitHub 工具       ${RESET}"
     echo -e "${GREEN}==============================${RESET}"
     echo -e "${GREEN}1) 初始化配置${RESET}"
     echo -e "${GREEN}2) 上传 文件到GitHub${RESET}"
@@ -302,7 +302,7 @@ menu() {
     echo -e "${GREEN}8) 卸载${RESET}"
     echo -e "${GREEN}9) 清理临时目录${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    read -p "请输入选项: " opt
+    read -p "$(echo -e ${GREEN}请输入选项: ${RESET})" opt
     case $opt in
         1) init_config ;;
         2) upload_files ;;
