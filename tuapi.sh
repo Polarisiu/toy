@@ -148,12 +148,11 @@ status_service() {
 # 菜单
 while true; do
     clear
-    echo -e "${GREEN}=======随机图片API===============${RESET}"
+    echo -e "${GREEN}=======随机图片API=====${RESET}"
     echo -e "${GREEN} 1) 安装依赖 & 随机图片服务${RESET}"
     echo -e "${GREEN} 2) 卸载服务${RESET}"
     echo -e "${GREEN} 3) 查看状态${RESET}"
     echo -e "${GREEN} 0) 退出${RESET}"
-    echo -e "${GREEN}================================${RESET}"
     read -p "请输入选项: " CHOICE
     case $CHOICE in
         1) install_dependencies; install_service ;;
