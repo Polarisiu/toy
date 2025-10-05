@@ -314,7 +314,7 @@ menu() {
         8) uninstall_tool ;;
         9) clean_tmp ;;
         0) exit 0 ;;
-        *) echo -e "${RED}无效选项${RESET}"; read -p "按回车返回菜单..." ;;
+        *) echo -e "${RED}无效选项${RESET}"; read -p "$(echo -e ${GREEN}按回车返回菜单...${RESET})" ;;
     esac
     menu
 }
