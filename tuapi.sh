@@ -153,7 +153,7 @@ while true; do
     echo -e "${GREEN} 2) 卸载服务${RESET}"
     echo -e "${GREEN} 3) 查看状态${RESET}"
     echo -e "${GREEN} 0) 退出${RESET}"
-    read -p "请输入选项: " CHOICE
+    read -p "$(echo -e ${GREEN}请输入选项: ${RESET})" CHOICE
     case $CHOICE in
         1) install_dependencies; install_service ;;
         2) uninstall_service ;;
