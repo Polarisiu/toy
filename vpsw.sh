@@ -17,7 +17,7 @@ RESET='\033[0m'
 # ================== 自动下载与初始化 ==================
 initialize_script() {
     if [ ! -f "$SCRIPT_PATH" ]; then
-        echo -e "${GREEN}首次运行：下载脚本并设置权限...${RESET}"
+        echo -e "${GREEN}首次运行：安装设置权限...${RESET}"
         mkdir -p "$(dirname "$SCRIPT_PATH")"
         curl -sSL "$SCRIPT_URL" -o "$SCRIPT_PATH"
         chmod +x "$SCRIPT_PATH"
