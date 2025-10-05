@@ -79,17 +79,15 @@ docker_ssh_all() {
 
 while true; do
     clear
-    echo -e "${GREEN}========== Docker 小鸡 管理菜单 ================${RESET}"
-    echo -e "${GREEN}1. 开设/移除 Swap${RESET}"
+    echo -e "${GREEN}==== Docker 小鸡 管理菜单 =======${RESET}"
+    echo -e "${GREEN}1. 开设/移除Swap${RESET}"
     echo -e "${GREEN}2. 环境组件安装${RESET}"
     echo -e "${GREEN}3. 检测磁盘限制${RESET}"
-    echo -e "${GREEN}4. 开设 Docker 小鸡${RESET}"
+    echo -e "${GREEN}4. 开设Docker小鸡${RESET}"
     echo -e "${GREEN}5. 删除所有容器镜像${RESET}"
     echo -e "${GREEN}6. 启动所有容器${RESET}"
-    echo -e "${GREEN}7. 启动容器 SSH 服务${RESET}"
-    echo -e "${GREEN}0. 退出脚本${RESET}"
-    echo -e "${GREEN}===============================================${RESET}"
-
+    echo -e "${GREEN}7. 启动容器SSH服务${RESET}"
+    echo -e "${GREEN}0. 退出${RESET}"
     read -p "请输入你的选择: " choice
 
     case "$choice" in
