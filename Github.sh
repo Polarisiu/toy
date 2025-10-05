@@ -11,7 +11,7 @@ TMP_BASE="$BASE_DIR/github/tmp"
 UPLOAD_DIR="$BASE_DIR/github/upload"
 DOWNLOAD_DIR="$BASE_DIR/github/download"
 SCRIPT_PATH="$BASE_DIR/gh_tool.sh"
-SCRIPT_URL="https://raw.githubusercontent.com/Polarisiu/tool/main/ghupload.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/Polarisiu/toy/main/Github.sh"
 BIN_LINK_DIR="/usr/local/bin"
 
 mkdir -p "$BASE_DIR" "$TMP_BASE" "$UPLOAD_DIR" "$DOWNLOAD_DIR"
