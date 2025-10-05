@@ -43,7 +43,7 @@ while true; do
     case $choice in
         1) install_script ;;
         2) uninstall_script ;;
-        0) echo -e "${GREEN}退出脚本${NC}"; exit 0 ;;
+        0) exit 0 ;;
         *) echo -e "${YELLOW}无效选项，请重新输入${NC}" ;;
     esac
     echo ""  # 增加空行
