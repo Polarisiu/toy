@@ -70,12 +70,10 @@ install_lxd() {
 batch_create_lxc() {
     while true; do
         clear
-        echo -e "${GREEN} 批量生成 LXC 小鸡${RESET}"
-        echo "------------------------"
+        echo -e "${GREEN} =====批量生成 LXC 小鸡=====${RESET}"
         echo -e "${GREEN}1. 普通批量生成(1核/256MB/1GB/限速300Mbit)${RESET}"
         echo -e "${GREEN}2. 自定义配置批量生成${RESET}"
         echo -e "${GREEN}0. 返回上一级菜单${RESET}"
-        echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
 
         case $choice in
@@ -114,8 +112,7 @@ manage_lxc() {
 
     while true; do
         clear
-        echo -e "${GREEN} 管理 LXC 小鸡${RESET}"
-        echo "------------------------"
+        echo -e "${GREEN} =====管理 LXC 小鸡=====${RESET}"
         echo -e "${GREEN}1. 查看所有 LXC 小鸡${RESET}"
         echo -e "${GREEN}2. 暂停所有 LXC 小鸡${RESET}"
         echo -e "${GREEN}3. 启动所有 LXC 小鸡${RESET}"
@@ -126,7 +123,6 @@ manage_lxc() {
         echo -e "${GREEN}8. 删除指定 LXC 小鸡${RESET}"
         echo -e "${GREEN}9. 删除所有 LXC 小鸡和配置${RESET}"
         echo -e "${GREEN}0. 返回上一级菜单${RESET}"
-        echo "------------------------"
         read -p $'\033[1;91m请输入你的选择: \033[0m' choice
 
         case $choice in
