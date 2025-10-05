@@ -84,7 +84,7 @@ while true; do
         4) run_optimization auto ;;
         5) run_optimization local ;;
         6) restore_config ;;
-        0) echo -e "${GREEN}退出菜单${NC}"; exit ;;
+        0) exit ;;
         *) echo -e "${RED}无效选项，请重新输入${NC}"
            pause_return ;;
     esac
