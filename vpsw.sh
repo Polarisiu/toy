@@ -186,7 +186,7 @@ menu() {
         echo -e "${GREEN}2) 修改 Telegram 配置${RESET}"
         echo -e "${GREEN}3) 删除临时文件${RESET}"
         echo -e "${GREEN}4) 定时任务管理${RESET}"
-        echo -e "${GREEN}5) 卸载脚本${RESET}"
+        echo -e "${GREEN}5) 卸载${RESET}"
         echo -e "${GREEN}0) 退出${RESET}"
         read -rp "请选择: " choice
         case $choice in
@@ -195,7 +195,7 @@ menu() {
             3) delete_file ;;
             4) setup_cron_job ;;
             5) uninstall_script ;;
-            0) echo "退出脚本"; exit 0 ;;
+            0) exit 0 ;;
             *) echo -e "${RED}无效选择${RESET}"; read -p "按回车返回菜单..." ;;
         esac
     done
