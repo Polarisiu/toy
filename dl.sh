@@ -21,7 +21,6 @@ show_menu() {
     echo -e "${GREEN}3) 更新脚本${RESET}"
     echo -e "${GREEN}4) 查看访问日志${RESET}"
     echo -e "${GREEN}0) 退出${RESET}"
-    echo -e "${GREEN}=========================================${RESET}"
 }
 
 install_tim() {
