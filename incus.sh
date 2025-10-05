@@ -87,7 +87,7 @@ install_incus(){
 manage_incus(){
     while true; do
         clear
-        echo -e "${GREEN}------管理 incus 小鸡--------${RESET}"
+        echo -e "${GREEN}======管理 incus 小鸡========${RESET}"
         echo -e "${GREEN}1. 查看所有小鸡状态${RESET}"
         echo -e "${GREEN}2. 暂停所有小鸡${RESET}"
         echo -e "${GREEN}3. 启动所有小鸡${RESET}"
@@ -202,7 +202,7 @@ manage_incus(){
 main_menu(){
     while true; do
         clear
-        echo -e "${GREEN}----Incus 管理脚本-------${RESET}"
+        echo -e "${GREEN}====Incus 管理脚本======${RESET}"
         echo -e "${GREEN}1. 开设SWAP${RESET}"
         echo -e "${GREEN}2. 安装incus${RESET}"
         echo -e "${GREEN}3. 管理 incus 小鸡${RESET}"
