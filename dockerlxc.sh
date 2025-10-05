@@ -100,7 +100,7 @@ while true; do
         5) docker_cleanup ;;
         6) docker_restart_all ;;
         7) docker_ssh_all ;;
-        0) echo -e "${GREEN}退出脚本${RESET}"; exit 0 ;;
+        0) exit 0 ;;
         *) echo -e "${RED}无效选项，请重新输入${RESET}"; sleep 2 ;;
     esac
 
